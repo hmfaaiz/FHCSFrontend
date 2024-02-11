@@ -1,24 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import { HashRouter, Route, Routes } from 'react-router-dom';
+import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
+import '../node_modules/bootstrap/dist/js/bootstrap.min.js';
 
+import AdminPanel from './readyComp/pages/AdminPanel';
+import Login from './readyComp/pages/Login';
+import Auth from "./Auth"
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+{/*     
+      <HashRouter> */}
+   
+        <Routes>
+          <Route path="/" element={<Auth Component={Login} />} />
+          <Route path="/adminpanel" element={<Auth Component={AdminPanel} />} />
+           {/* <Route path="/" element={<Login/>}/>
+          <Route path="/adminpanel" element={<AdminPanel/>} /> 
+          <Route path="/modal" element={<CModal/>} /> */}
+        </Routes>
+  
+      {/* </HashRouter> */}
+    </>
   );
 }
 
